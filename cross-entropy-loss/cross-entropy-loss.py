@@ -14,10 +14,4 @@ def cross_entropy_loss(y_true, y_pred):
 
     correct_probs = y_pred[np.arange(len(y_true)), y_true]
 
-    loss = np.array([])
-    
-    for prob in correct_probs:
-         loss = np.append(loss, np.log(prob))
-
-    print(loss)
-    return -np.mean(loss)
+    return -np.mean(np.log(correct_probs))
